@@ -1,6 +1,14 @@
 -- prints every time we launch neovim 
 -- print("Good Morning Noah!")
 
+-- Don't automatically continue comments onto new lines
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+    end,
+})
+
+
 -- disable lowercase when u in visual mode
 vim.keymap.set("x", "u", "<Esc>")
 
