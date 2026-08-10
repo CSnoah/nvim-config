@@ -2,6 +2,10 @@
   <span style="font-size: 200px;"><strong>Neovim configuration 2026</strong></span>
 </p>
 
+### nvim
+
+- requires v0.11.x or newer
+
 ### Dependencies
 | Dependency       | Purpose                                           | Used By         |
 | ---------------- | ------------------------------------------------- | --------------- |
