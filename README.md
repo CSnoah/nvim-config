@@ -2,6 +2,14 @@
   <span style="font-size: 200px;"><strong>Neovim configuration 2026</strong></span>
 </p>
 
+### Dependencies
+| Dependency       | Purpose                                           | Used By         |
+| ---------------- | ------------------------------------------------- | --------------- |
+| `clang`          | C/C++ compiler used to compile Treesitter parsers | nvim-treesitter |
+| `git`            | Downloads plugins                                 | lazy.nvim       |
+| `fd` / `fdfind`  | Find files/directories                            | Telescope       |
+| `ripgrep` / `rg` | Search text across files                          | Telescope       |
+
 ### Plugins
 | Plugin                                        | Purpose                                  | How I Use It                                                         |
 | --------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------- |
