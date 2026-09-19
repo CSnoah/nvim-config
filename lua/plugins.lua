@@ -70,7 +70,7 @@ require("lazy").setup({
                 highlight = { enable = true, },
                 -- autotag depricated
                 -- autotag = { enable = true },
-                indent = { enable = true },
+                -- indent = { enable = true },
             })
         end
     },

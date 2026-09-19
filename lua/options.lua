@@ -1,6 +1,10 @@
 -- prints every time we launch neovim 
 -- print("Good Morning Noah!")
 
+-- change the leader key to space
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Don't automatically continue comments onto new lines
 vim.api.nvim_create_autocmd("FileType", {
     callback = function()
@@ -8,13 +12,21 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- run current python file buffer with tmux popup
+vim.keymap.set("n", "<leader>r", function()
+    local file = vim.fn.expand("%:p")
+    vim.fn.system({
+        "tmux",
+        "display-popup",
+        "-w", "80%",
+        "-h", "80%",
+        "sh", "-c",
+        "python3 " .. vim.fn.shellescape(file) .. "; exec $SHELL",
+    })
+end)
 
 -- disable lowercase when u in visual mode
 vim.keymap.set("x", "u", "<Esc>")
-
--- change the leader key to space
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- show file path on document(i use for checking importing path)
 vim.opt.statusline = "%F"
