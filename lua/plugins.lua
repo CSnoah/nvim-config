@@ -63,9 +63,10 @@ require("lazy").setup({
         'nvim-treesitter/nvim-treesitter', 
         run= ':TSUpdate',
         config = function()
+            vim.treesitter.language.register("bash", "zsh")
             require("nvim-treesitter.configs").setup({
                 ensure_installed = { 
-                    "python", "c", "cpp", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "tsx", "html" }, 
+                    "python", "c", "cpp", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "tsx", "html", "bash"}, 
                 auto_install = true,
                 highlight = { enable = true, },
                 -- autotag depricated
