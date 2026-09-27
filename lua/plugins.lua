@@ -120,13 +120,15 @@ require("lazy").setup({
           local builtin = require("telescope.builtin")
           local telescope = require("telescope")
           telescope.setup({
+
             defaults = {
               file_ignore_patterns = {
                 "node_modules",
-                ".git",
+                -- ".git",
                 "dist",
                 "build"
               },
+
               mappings = {
                 i = {  
                   -- insert mode (when typing in Telescope)
@@ -135,6 +137,13 @@ require("lazy").setup({
                 },
               },
             },
+
+            pickers={
+              find_files = {
+                hidden = true,
+              }
+            },
+
             extensions = {
               file_browser = {
                 hijack_netrw = true,
@@ -148,7 +157,24 @@ require("lazy").setup({
 
           telescope.load_extension("file_browser")
 
-          vim.keymap.set("n", "<leader>ff", builtin.find_files)
+          -- vim.keymap.set("n", "<leader>ff", builtin.find_files)
+
+          vim.keymap.set("n", "<leader>ff", function()
+            local fd = vim.fn.executable("fd") == 1 and "fd" or "fdfind"
+
+            builtin.find_files({
+              prompt_title = "Find Files",
+              find_command = {
+                fd,
+                "--hidden",
+                "--exclude", ".git/*",
+                "--exclude", "node_modules",
+                "--exclude", "dist",
+                "--exclude", "build",
+              },
+            })
+          end)
+
           vim.keymap.set("n", "<leader>fg", builtin.live_grep)
           vim.keymap.set("n", "<leader>fb", builtin.buffers)
 
