@@ -1,6 +1,16 @@
 -- prints every time we launch neovim 
 -- print("Good Morning Noah!")
 
+-- change speed of ctrl+u or ctrl+d vertical scrolling
+vim.opt.scroll = 8
+
+-- ctrl+u or ctrl+d auto center
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- scrolloff controls how close the cursor is allowed to get to the top or bottom of the screen while scrolling.
+-- vim.opt.scrolloff = 2
+
 -- change the leader key to space
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
