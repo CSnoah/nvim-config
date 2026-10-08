@@ -330,7 +330,17 @@ require("lazy").setup({
     end,
   },
 
-
+  -- -- mini.animate
+  -- {
+  --   "echasnovski/mini.animate",
+  --   config = function()
+  --     require("mini.animate").setup({
+  --       scroll = {
+  --         enable = true,
+  --       },
+  --     })
+  --   end,
+  -- },
 
 })
 
